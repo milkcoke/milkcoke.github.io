@@ -14,7 +14,7 @@ vendor
 
 # rubygem
 *.gem
-Gemfile.lock
+#Gemfile.lock
 
 # npm dependencies
 node_modules
