@@ -71,6 +71,8 @@ GEM
     mercenary (0.4.0)
     nokogiri (1.13.8-x64-mingw-ucrt)
       racc (~> 1.4)
+    nokogiri (1.13.8-x86_64-darwin)
+      racc (~> 1.4)
     nokogiri (1.13.8-x86_64-linux)
       racc (~> 1.4)
     parallel (1.22.1)
@@ -103,6 +105,7 @@ GEM
 
 PLATFORMS
   x64-mingw-ucrt
+  x86_64-darwin-21
   x86_64-linux
 
 DEPENDENCIES
@@ -114,4 +117,4 @@ DEPENDENCIES
   webrick (~> 1.7)
 
 BUNDLED WITH
-   2.3.19
+   2.3.7
