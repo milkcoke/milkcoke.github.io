@@ -28,7 +28,7 @@ Master Node + Read replica
 
 
 ### What developers have to decide?
-**Always consider 'user-centered' perspective, Do it affect on user experience?**
+**Always consider 'user-centered' perspective, Does it affect on user experience?**
 
 ---
 

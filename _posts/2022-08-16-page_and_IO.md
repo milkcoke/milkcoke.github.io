@@ -25,5 +25,5 @@ Some OS(ex. PostgreSQL) use OS cache instead of disk.
 B-Tree search operation Time Complexity is Log(N)
 
 ## Heap
-Everything is stored in here (disk).
+Everything is stored in here (disk). \
 More IO in this section, more cost and slower the queries.

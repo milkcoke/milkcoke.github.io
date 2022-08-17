@@ -15,7 +15,7 @@ If not, memory in heap would jump left and right, That will not benefit of memor
 This is used in non-clustered index. \
 Have an additional outside index as B-Tree. It's not in table.
 
-> ⚠️ Postgres doesn't have primary index. All indexes are secondary index.
+> ⚠️ Postgres doesn't have primary index. All indexes are secondary index. (Non-clustered index)
 
 
 ## Non-Clustered Index
