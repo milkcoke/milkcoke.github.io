@@ -7,8 +7,7 @@ tags: [database]
 
 ## Primary key
 Organized, clustered table. we call it **Index Organized Table (IOT)** \
-Clustered index that is sequential is not that bad. So,
-it's ordered data and can use efficient caching mechanism. \
+Clustered index that is sequential is not that bad. So, it's ordered data and can use efficient caching mechanism. \
 If not, memory in heap would jump left and right, That will not benefit of memory caching DB is doing.
 
 ## Secondary Key
