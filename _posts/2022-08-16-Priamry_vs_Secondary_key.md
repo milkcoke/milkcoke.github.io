@@ -26,6 +26,9 @@ Have an additional outside index as B-Tree. It's not in table.
 - Just logical order, not organized physically.
 - Composite key when used with unique constraints of the table act as non-clustered index.
 
+### How to create non-clustered index in DBMS
+![Syntax](/assets/img/index/non_clustered_index_syntax.png)
+
 ---
 
 ## 🔗 Reference
