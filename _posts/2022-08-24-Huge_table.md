@@ -40,7 +40,7 @@ You can't avoid it? Use indexing, partitioning, sharding. (Like DynamoDB)
 
 
 [Twitter]
-single profile table,
+Single profile table,
 id, name, follower integer, follower , following on the write level.
 
 Update these things everytime someone follow / following
