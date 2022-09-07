@@ -10,7 +10,7 @@ tags: [database]
 ### [CASE I] Brute force
 Brute forcing your way to work on the table.
 
-If you tried to find a row in the table without indexing \
+If you tried to find a row in the table without indexing
 which is do multi-processing, multi-threading parallely.
 
 
