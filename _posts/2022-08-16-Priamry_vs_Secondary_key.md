@@ -29,6 +29,15 @@ Have an additional outside index as B-Tree. It's not in table.
 ### How to create non-clustered index in DBMS
 ![Syntax](/assets/img/index/non_clustered_index_syntax.png)
 
+
+### Secondary index in Postgres and MySQL
+
+> ⚠️ Don't use big primary key in MySQL using secondary index because it keeps primary key in secondary index
+
+![Secondary index result](/assets/img/index/secondary_index_create_example.png)
+![Secondary index create](/assets/img/index/secondray_index_create_result.png)
+
+
 ---
 
 ## 🔗 Reference
