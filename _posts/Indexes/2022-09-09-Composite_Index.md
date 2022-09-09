@@ -26,4 +26,5 @@ WHERE col1 = ? AND col2 = ?
 #### 3. Lower selectivity column is leading
 Because real world's queries are executed like below. \
 > Main category -> middle category -> subcategory
+
 #### 4. Location column (condition, ex. ID) is followed by order column (ex. DATE)
