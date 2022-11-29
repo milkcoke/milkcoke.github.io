@@ -10,7 +10,7 @@ tags: [cache]
 Split the big table into multiple logical tables in the same table.
 
 ## When to use Partitioning?
-If table size is bigger and bigger , Indexes should being large, **the queries could slower than before** \
+If table size is bigger and bigger , Indexes should being large, **the queries could slower than before**
 
 **Partition the table with index!** \
 => Query to small size indexes so targeting specific partitioned table! \
@@ -71,7 +71,7 @@ SELECT floor(random() * 100)
 FROM generate_series (0, 10000000);
 ```
 
-### 3. Create index on grade for partitioning
+### 3. Create index on grade
 ```sql
 CREATE INDEX grades_grade_index ON grades(grade);
 
@@ -115,7 +115,7 @@ Execution Time: 42.094 ms
 > 💡 You must execute above first, and follow next section since it's reused in this section above the `grades` table.
 
 ## Partitioning Table
-### 1. create table
+### 1. create table with partition
 ```sql
 create table grades_partition
 (
