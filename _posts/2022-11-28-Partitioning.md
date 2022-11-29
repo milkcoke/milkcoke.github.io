@@ -219,3 +219,29 @@ SET enable_partition_pruning = on; -- default on
 
 If you `off` that option, query will scan all partitions across whole table.
 
+---
+
+
+## Pros and Cons of Partitioning
+
+### Pros
+- Improves query performance \
+Lower size data (index size also) -> Fast query performance
+- Easy bulk loading \
+You don't need caring about to which partition the data belongs. \
+DB automatically decides it.
+- Archive old data efficiently \
+If you barely query on specific partition table (ex. old data), you could archive it into cheap storage.
+
+### Cons
+- Slow update \
+When you move entire rows from one partition to another, it should delete rows and inserting ones. \
+It's so slower than just updating rows.
+
+- Inefficient when scan all partitions. \
+Suppose you scan all data in table partitioned. \
+It's slower than a single table since it should jump from one partition to another one.
+
+- Schema changes could be challenging \
+If master table has index, child tables also do it. However, it would not be always done. \
+The tables actually has to support this feature.
