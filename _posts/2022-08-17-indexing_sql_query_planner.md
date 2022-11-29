@@ -10,7 +10,7 @@ tags: [database]
 Tested on DBMS: PostgreSQL 14.4
 
 #### Table DDL
-```postgresql
+```sql
 create table users
 (
     id   integer generated always as identity
@@ -24,7 +24,7 @@ Suppose already inserted 1 million rows in the table.
 ### Seq scan
 Querying with no index column `seq scan` executed.
 
-```postgresql
+```sql
 EXPLAIN (analyze, buffers) SELECT id, name
 FROM users
 WHERE name = 'PLVCE UHIP';
@@ -52,7 +52,7 @@ Execution Time: 43.969 ms
 
 ### Use `index scan` for efficient query
 
-```postgresql
+```sql
 -- create index on `name`
 CREATE INDEX users_name_idx on users(name);
 -- DBMS decide to use 'index scan' since it has index column (name)
@@ -80,7 +80,7 @@ like cause slow query since actually asking for 'expression' not a single 'value
 So, seq scan should be executed instead of index scan even if it has index.
 
 
-```postgresql
+```sql
 EXPLAIN (analyze, buffers) SELECT id, name
 FROM users
 WHERE name LIKE '%PLVCE UHIP%';
@@ -117,7 +117,7 @@ Buffers: shared hit=6
 
 ### What's buffers shared 'hit' and 'read'?
 
-PostgreSQL internally use OS cache. \
+sql internally use OS cache. \
 You can check the cache size on the `shared_buffers` (default: 128MB)
 
 #### Shared Hit
