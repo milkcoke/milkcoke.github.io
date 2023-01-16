@@ -5,7 +5,7 @@ category: [Database]
 tags: [database]
 ---
 
-## What column is to be included in composite index?
+## What kind of columns are to be included in composite index?
 
 Let me introduce my principal about how to choose column of composite index.
 
@@ -28,3 +28,18 @@ Because real world's queries are executed like below. \
 > Main category -> middle category -> subcategory
 
 #### 4. Location column (condition, ex. ID) is followed by order column (ex. DATE)
+
+#### 5. Use `IN` instead of between
+You can take benefit of index when to use `IN` instead of BETWEEN \
+`IN` means internally operates combination ('=' + OR)
+```sql
+SELECT id, name
+FROM member WITH(users_id_index) -- index 사용 강제 가능.
+WHERE IN id IN (1, 3, 10, 15) -- id == 1 || id == 3 || id == 10 || id == 15
+```
+
+#### 6. Use minimum the number of columns in index
+
+#### 7. Sync Composite key ordering with `ORDER BY` sequence.
+Sync all same sequence or on other way sequence. \
+If not, more data access and sorting occurs.

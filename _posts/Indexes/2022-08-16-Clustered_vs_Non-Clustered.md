@@ -41,6 +41,8 @@ Non-clustered index also sorted and stored in separate from heap space.
 
 > ⚠️ Don't use big primary key in MySQL using secondary index because it keeps primary key in secondary index
 
+When create non-clustered index, automatically clustered index columns are added additionally.
+
 ## Heap table
 Table with no clustered index. (Only data page)
 
@@ -85,7 +87,6 @@ Should not be updated, If not, page split occurs or re-balancing occurs
 > Not exists In-place update.
 
 **✅ This is `auto_increment`!** But it's not absolute solution.
-
 
 ---
 

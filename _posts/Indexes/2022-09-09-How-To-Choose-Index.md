@@ -3,6 +3,7 @@ layout: post
 title: "인덱스 컬럼을 어떻게 선택할까?"
 category: [Database]
 tags: [database]
+math: true
 ---
 
 ## 인덱스란?
@@ -16,7 +17,7 @@ tags: [database]
 ex) 남녀 성비는 분포도가 50%, 나이는 (1~100세) 1%다.
 즉, 백분율이 낮을 수록 분포도가 좋다고 한다.
 
-$$분포도 = \frac{1}{식별 가능한 수} * 100  (%)$$
+$$분포도 = \frac{1}{식별 가능한 수} * 100  (\%)$$
 
 #### 선택도 (Selectivity)
 ```sql
@@ -41,7 +42,7 @@ FROM table_name
 
 ```sql
 SELECT *
-FROM order
+FROM orders
 -- 'N' 주문건의 비율은 전체에서 매우 적을 것이다.
 -- 주로 '아직 배달되지 않은' 주문 건에 대해 조회가 일어나는 서비스라면
 -- 이와 같은 쿼리가 자주 이뤄질 것이고 따라서 `is_delivered' 컬럼을 인덱스로 등록할만하다.
