@@ -11,10 +11,14 @@ Different according to DBMS (ex. PostgreSQL has a 8KB page, MySQL does 16KB) \
 DB handle data one or more pages in a single IO.
 
 
-## IO
+## IO (physical IO)
 Operation unit a request to disk. \
 Considered performance, developers should minimize this since this is expensive (on disk). \
 Some OS(ex. PostgreSQL) use OS cache instead of disk.
+
+### Logical I/O
+Operation request to shared_buffers, os cache etc..
+
 
 ## Index
 **Physical method of storing data.**
