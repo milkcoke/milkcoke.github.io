@@ -12,9 +12,14 @@ This depends on your application.
 #### why?
 Postgres has secondary index architecture. So re-balancing operation cost of insert & delete is cheaper than Clustered index. \
 However, postgres create a process with large memory (almost 10 MB) per connection. This is the cause of lower speed in read operation comparing to MySQL using thread.
+Also, Massive read operation is inefficient by random IO because postgres only supports non-clustered index.
 
+Refer to [Clustered index vs non-clustered index](https://milkcoke.github.io/posts/Clustered_vs_Non-Clustered/)
 ## Choose MySQL
 High volumes of reads. \
+MySQL supports clustered index, so massive read is more efficient than Postgres. \
+Random I/O is can be avoided.
+
 MySQL has two types threads, foreground and background
 
 ### MySQL's Threads

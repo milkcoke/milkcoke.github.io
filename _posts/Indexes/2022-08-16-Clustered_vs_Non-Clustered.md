@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Index Structure"
+title: "Clustered index vs non-clustered index"
 category: [Database]
 tags: [database]
 ---
