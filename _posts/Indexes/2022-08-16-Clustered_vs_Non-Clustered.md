@@ -51,22 +51,34 @@ Table with no clustered index. (Only data page)
 
 
 ## Clustered Index
-**Primary key(Clustered index) is physically sorted and stored with entire row data in data page (Heap).**
+When creating **primary key(clustered index) is physically and logically sorted and with entire row data in data page (Heap).** \
+Each page is connected with doubly linked list. \
+However, clustered index table doesn't guarantee physical order of rows as time goes by. \
+Because INSERT, UPDATE, DELETE operations make a page split. Each age gets fragmented \
+On the other side, logical order of pages is sustainable with link.
 
-### Why need index rebuild?
-> Don't create clustered index on running table. That work is so hard workload
-> RDB doesn't ensure physical space sequence.
+
 
 #### Page split
 In RDBMS, a table exists having auto increment Primary key 1, 3, 5, 7... \
 You insert primary key '2' record on the table. \
 What happened?
 
-> If page have empty space => insert the row in that page and update page offset.
-> If page doesn't have empty space => split 50% data to a new page
+> - If page have empty space <br>
+=> insert the row in that page and update page offset. <br>
+> - If page doesn't have empty space <br>
+=> split 50% data to a new page
 
 Page split have impact on OLAP since there's many empty page I/O. \
 However, doesn't large impact on OLTP (low page I/O)
+
+
+### Why need index rebuild?
+When rebuilding clustered index, fragments from page split are removed.
+After rebuilding, Pages and rows are organized physically , logically both.
+
+#### Tips
+> Don't create clustered index on running table. That work is so hard workload
 
 ### When to use clustered index
 - OLAP - character query \
@@ -92,3 +104,4 @@ Should not be updated, If not, page split occurs or re-balancing occurs
 
 ## 🔗 Reference
 - [Difference between clustered and non clustered index - GeeksForGeeks](https://www.geeksforgeeks.org/difference-between-clustered-and-non-clustered-index/?ref=rp)
+- [Clustered index do not guarantee order of rows](https://sqlwithmanoj.com/2013/06/02/clustered-index-do-not-guarantee-physically-ordering-or-sorting-of-rows/)
