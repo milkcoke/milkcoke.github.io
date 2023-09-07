@@ -46,10 +46,10 @@ This solution guarantee exact number of view count. \
 
 #### HyperLogLog Solution
 
-![HyperLogLog for item views](/assets/img/redis/redis-with-hyperloglog.svg)
+![HyperLogLog for item views](/assets/img/redis/redis-with-hyperloglog.svg)\
 This solution requires only 12KB memory usage.
 
-![HyperLogLog error](/assets/img/redis/redis-with-hyperloglog.svg)
+![HyperLogLog error](/assets/img/redis/redis-hyperloglog-error.svg)\
 However, it has error rate approximately 0.81%.
 
 This solution is appropriate than SET solution since it's important reduce redis memory usage and it's not much important counting views exactly.
