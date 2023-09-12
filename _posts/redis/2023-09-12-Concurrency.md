@@ -20,7 +20,7 @@ Why this happened? There's gap between read and update.
 ![General Concurrency Issue](/assets/img/redis/concurrency_issue.svg)
 
 ## Solution
-### (1) Use atomic operations.
+### (1) Use atomic command
 ex)`HSETNX`, `HINCRBY` \
 It removes gap between read and command \
 ![Atomic operation](/assets/img/redis/concurrency_atomic_operation.svg)
@@ -60,7 +60,7 @@ And make other transactions fail.
 >> SET color green
 
 >> EXEC
--- nil (faile dto execute transaction)
+-- nil (failed to execute transaction)
 
 >> SET color yellow
 -- success color set as `yellow` since `EXEC` call `UNWATCHED` implicitly
