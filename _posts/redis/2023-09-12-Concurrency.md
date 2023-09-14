@@ -74,5 +74,37 @@ And make other transactions fail.
 **Like those app, concurrency issue is not critical.**
 
 
+## Cons of `WATCH` solution
+
+Suppose bid system.
+bid condition is "bid amount must be greater than item price". \
+![WATCH-Scenario](/assets/img/redis/item-scenario.png)
+
+
+There's error case when applying `WATCH` solution. \
+Let me show you example,
+![WATCH-error-case](/assets/img/redis/watch-case.png)
+
+when original Item price is 5$, If first request amount 10$ and second request amount 15$ \
+Both request occur almost simultaneously, first request succeed but second request is going to fail. \
+This is error case since second request amount 15$ is greater than 10$ of first request.
+
+For Guaranteeing second request success, we should implement retry logic. \
+From this , A lot of load occurs on redis server since there's many fail cases for short time.
+
+
+### Summary cons of `WATCH` solution
+We call it `WATCH` solution as optimistic lock. \
+
+1. Error case
+2. Not scalable \
+Especially mass requests occurs, results in a lot of fail transactions and load on redis server.
+3. Redis cluster doesn't support `WATCH`
+
+> For resolving this problem, we can use **distributed lock**.
+
+
+
+
 
 
