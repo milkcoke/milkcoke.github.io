@@ -94,7 +94,7 @@ From this , A lot of load occurs on redis server since there's many fail cases f
 
 
 ### Summary cons of `WATCH` solution
-We call it `WATCH` solution as optimistic lock. \
+We call it `WATCH` solution as optimistic lock.
 
 1. Error case
 2. Not scalable \
@@ -102,8 +102,9 @@ Especially mass requests occurs, results in a lot of fail transactions and load 
 3. Redis cluster doesn't support `WATCH`
 
 > For resolving this problem, we can use **distributed lock**.
+{: .prompt-tip }
 
-
+You can see lock in redis [this post]({% post_url redis/2023-09-15-Lock %})
 
 
 
